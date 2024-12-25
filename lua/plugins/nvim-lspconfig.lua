@@ -110,7 +110,24 @@ local config = function()
 		},
 	})
 
+	-- css
 	lspconfig.cssls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	lspconfig.css_variables.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	lspconfig.somesass_ls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	-- html
+	lspconfig.html.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})
@@ -131,8 +148,14 @@ local config = function()
 		},
 	})
 
-	-- html
-	lspconfig.html.setup({
+	-- cmake
+	lspconfig.cmake.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	-- assembly
+	lspconfig.asm_lsp.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})
@@ -155,6 +178,7 @@ local config = function()
 	local hadolint = require("efmls-configs.linters.hadolint")
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
+	local rustfmt = require("efmls-configs.formatters.rustfmt")
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -177,6 +201,7 @@ local config = function()
 			"css",
 			"c",
 			"cpp",
+			"rust",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -207,6 +232,7 @@ local config = function()
 				css = { prettier_d },
 				c = { clangformat, cpplint },
 				cpp = { clangformat, cpplint },
+				rust = { rustfmt },
 			},
 		},
 	})

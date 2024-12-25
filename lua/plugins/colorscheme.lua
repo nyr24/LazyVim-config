@@ -13,17 +13,22 @@ return {
 		},
 	},
 	-- {
-	--   "folke/tokyonight.nvim",
-	--   lazy = false,
-	--   priority = 1000,
-	--   opts = {
-	--     style = "moon",
-	--     transparent = true,
-	--   },
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		style = "moon",
+	-- 		transparent = true
+	-- 	},
+	-- 	styles = {
+	-- 		comments = { italic = false },
+	-- 		keywords = { italic = false }
+	--     }
 	-- },
 	{
 		"LazyVim/LazyVim",
 		opts = {
+			-- colorscheme = "tokyonight-moon",
 			colorscheme = "catppuccin",
 		},
 	},
