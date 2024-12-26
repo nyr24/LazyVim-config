@@ -8,13 +8,10 @@ local config = function()
 			signs = false,
 		},
 	})
-	local cmp_nvim_lsp = require("cmp_nvim_lsp")
 	local lspconfig = require("lspconfig")
-	local capabilities = cmp_nvim_lsp.default_capabilities()
 
 	-- solidity
 	lspconfig.solidity_ls.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 		filetypes = { "solidity" },
 		root_dir = lspconfig.util.root_pattern("hardhat.config.*", ".git"),
@@ -22,7 +19,6 @@ local config = function()
 
 	-- lua
 	lspconfig.lua_ls.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 		settings = { -- custom settings for lua
 			Lua = {
@@ -42,14 +38,12 @@ local config = function()
 
 	-- json
 	lspconfig.jsonls.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 		filetypes = { "json", "jsonc" },
 	})
 
 	-- python
 	lspconfig.pyright.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 		settings = {
 			pyright = {
@@ -67,7 +61,6 @@ local config = function()
 	-- typescript
 	lspconfig.ts_ls.setup({
 		on_attach = on_attach,
-		capabilities = capabilities,
 		filetypes = {
 			"typescript",
 			"javascript",
@@ -87,14 +80,12 @@ local config = function()
 
 	-- bash
 	lspconfig.bashls.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 		filetypes = { "sh", "aliasrc" },
 	})
 
 	-- typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
 	lspconfig.emmet_ls.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 		filetypes = {
 			"typescriptreact",
@@ -112,35 +103,29 @@ local config = function()
 
 	-- css
 	lspconfig.cssls.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	lspconfig.css_variables.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	lspconfig.somesass_ls.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	-- html
 	lspconfig.html.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	-- docker
 	lspconfig.dockerls.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	-- C/C++
 	lspconfig.clangd.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 		cmd = {
 			"clangd",
@@ -150,13 +135,11 @@ local config = function()
 
 	-- cmake
 	lspconfig.cmake.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	-- assembly
 	lspconfig.asm_lsp.setup({
-		capabilities = capabilities,
 		on_attach = on_attach,
 		cmd = { "asm-lsp" },
 		filetypes = {
@@ -252,8 +235,5 @@ return {
 		"windwp/nvim-autopairs",
 		"williamboman/mason.nvim",
 		"creativenull/efmls-configs-nvim",
-		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-nvim-lsp",
 	},
 }
