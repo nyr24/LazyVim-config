@@ -158,6 +158,11 @@ local config = function()
 	lspconfig.asm_lsp.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		cmd = { "asm-lsp" },
+		filetypes = {
+			"asm",
+			"vmasm",
+		},
 	})
 
 	for type, icon in pairs(diagnostic_signs) do
