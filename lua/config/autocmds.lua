@@ -2,17 +2,17 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- auto-format on save
-local lsp_fmt_group = vim.api.nvim_create_augroup("LspFormattingGroup", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-	group = lsp_fmt_group,
-	callback = function()
-		local efm = vim.lsp.get_clients({ name = "efm" })
+-- Autoformat setting
+local set_autoformat = function(pattern, bool_val)
+	vim.api.nvim_create_autocmd({ "FileType" }, {
+		pattern = pattern,
+		callback = function()
+			vim.b.autoformat = bool_val
+		end,
+	})
+end
 
-		if vim.tbl_isempty(efm) then
-			return
-		end
-
-		vim.lsp.buf.format({ name = "efm", async = true })
-	end,
-})
+set_autoformat({ "cpp" }, false)
+set_autoformat({ "c" }, false)
+set_autoformat({ "lua" }, true)
+set_autoformat({ "yaml" }, false)
