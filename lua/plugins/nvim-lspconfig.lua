@@ -9,6 +9,7 @@ local config = function()
 		},
 	})
 	local lspconfig = require("lspconfig")
+	local capabilities = require("blink-cmp").get_lsp_capabilities()
 
 	-- solidity
 	lspconfig.solidity_ls.setup({
@@ -20,6 +21,7 @@ local config = function()
 	-- lua
 	lspconfig.lua_ls.setup({
 		on_attach = on_attach,
+		capabilities = capabilities,
 		settings = { -- custom settings for lua
 			Lua = {
 				-- make the language server recognize "vim" global
@@ -39,12 +41,14 @@ local config = function()
 	-- json
 	lspconfig.jsonls.setup({
 		on_attach = on_attach,
+		capabilities = capabilities,
 		filetypes = { "json", "jsonc" },
 	})
 
 	-- python
 	lspconfig.pyright.setup({
 		on_attach = on_attach,
+		capabilities = capabilities,
 		settings = {
 			pyright = {
 				disableOrganizeImports = false,
@@ -61,6 +65,7 @@ local config = function()
 	-- typescript
 	lspconfig.ts_ls.setup({
 		on_attach = on_attach,
+		capabilities = capabilities,
 		filetypes = {
 			"typescript",
 			"javascript",
@@ -81,12 +86,14 @@ local config = function()
 	-- bash
 	lspconfig.bashls.setup({
 		on_attach = on_attach,
+		capabilities = capabilities,
 		filetypes = { "sh", "aliasrc" },
 	})
 
 	-- typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
 	lspconfig.emmet_ls.setup({
 		on_attach = on_attach,
+		capabilities = capabilities,
 		filetypes = {
 			"typescriptreact",
 			"javascriptreact",
@@ -103,29 +110,35 @@ local config = function()
 
 	-- css
 	lspconfig.cssls.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	lspconfig.css_variables.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	lspconfig.somesass_ls.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	-- html
 	lspconfig.html.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	-- docker
 	lspconfig.dockerls.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	-- C/C++
 	lspconfig.clangd.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 		cmd = {
 			"clangd",
@@ -135,11 +148,13 @@ local config = function()
 
 	-- cmake
 	lspconfig.cmake.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 	})
 
 	-- assembly
 	lspconfig.asm_lsp.setup({
+		capabilities = capabilities,
 		on_attach = on_attach,
 		cmd = { "asm-lsp" },
 		filetypes = {
