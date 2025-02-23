@@ -5,8 +5,8 @@ return {
 	ft = "rust",
 	config = function()
 		local rt = require("rust-tools")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local blink_cmp = require("blink-cmp")
+		local capabilities = blink_cmp.get_lsp_capabilities()
 		rt.setup({
 			server = {
 				on_attach = on_attach,

@@ -163,6 +163,11 @@ local config = function()
 		},
 	})
 
+    lspconfig.rust_analyzer.setup({
+        capabilities = capabilities,
+        on_attach = on_attach
+    })
+
 	for type, icon in pairs(diagnostic_signs) do
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
