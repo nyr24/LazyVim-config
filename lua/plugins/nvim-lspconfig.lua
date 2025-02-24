@@ -165,7 +165,26 @@ local config = function()
 
     lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
-        on_attach = on_attach
+        on_attach = on_attach,
+        filetypes = {"rust"},
+        root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+        settings = {
+            ["rust-analyzer"] = {
+                imports = {
+                    granularity = {
+                        group = "module",
+                    },
+                    prefix = "self",
+                },
+                cargo = {
+                    runBuildScript = true,
+                    allFeatures = true,
+                },
+                procMacro = {
+                    enable = true
+                },
+            }
+        }
     })
 
 	for type, icon in pairs(diagnostic_signs) do
