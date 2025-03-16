@@ -22,6 +22,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				javascript = { "prettierd" },
+                rust = { "rustfmt" }
 			},
 		},
 	},
