@@ -13,6 +13,7 @@ local set_autoformat = function(pattern, bool_val)
 end
 
 set_autoformat({ "cpp" }, false)
+set_autoformat({ "rust" }, false)
 set_autoformat({ "c" }, false)
 set_autoformat({ "lua" }, false)
 set_autoformat({ "yaml" }, false)
