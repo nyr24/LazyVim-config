@@ -27,8 +27,6 @@ local mason_lspconfig = {
 			"jsonls",
 			"cssls",
 			"clangd",
-			"clang-format",
-			"codelldb",
 			"rust_analyzer",
       "zls"
 		},

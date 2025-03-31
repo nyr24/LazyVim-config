@@ -1,4 +1,5 @@
 return {
+  -- catppuccin
 	{
 		"catppuccin",
 		priority = 1000,
@@ -12,10 +13,17 @@ return {
 			no_bold = true, -- Force no bold
 		},
 	},
+  -- nightfly
+  {
+    "bluz71/vim-nightfly-colors",
+    name = "nightfly",
+    lazy = false,
+    priority = 1000
+  },
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "catppuccin",
+			colorscheme = "nightfly",
 		},
 	},
 }
