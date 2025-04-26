@@ -3,6 +3,7 @@ local opt = vim.opt
 vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
 vim.g.zig_fmt_autosave = 0
+vim.g.nightflyItalics = false
 
 -- Tab / Indentation
 opt.expandtab = true
