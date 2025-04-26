@@ -4,6 +4,11 @@
 
 local language_info = {
 	{
+		file_type = "*",
+		auto_format = false,
+		indent = 2,
+	},
+	{
 		file_type = "html",
 		auto_format = false,
 		indent = 2,
