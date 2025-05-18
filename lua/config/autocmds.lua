@@ -69,6 +69,11 @@ local language_info = {
 		auto_format = true,
 		indent = 4,
 	},
+	{
+		file_type = "odin",
+		auto_format = true,
+		indent = 4,
+	},
 }
 
 -- Autoformat setting

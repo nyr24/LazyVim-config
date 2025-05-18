@@ -136,6 +136,9 @@ return {
 
 			-- zig
 			zls = {},
+
+			-- odin
+			ols = {},
 		},
 	},
 }
