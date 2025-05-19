@@ -28,7 +28,8 @@ local mason_lspconfig = {
 			"cssls",
 			"clangd",
 			"rust_analyzer",
-      "zls"
+      "zls",
+      "ols"
 		},
 		automatic_installation = true,
 	},
