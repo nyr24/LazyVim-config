@@ -6,6 +6,7 @@ return {
       "cpp",
       "zig",
       "odin",
+      "glsl"
     }
   }
 }
