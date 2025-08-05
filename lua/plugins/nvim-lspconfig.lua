@@ -80,6 +80,9 @@ return {
 				},
 			},
 
+      -- vue
+      volar = {},
+
 			-- css
 			cssls = {},
 			css_variables = {},
