@@ -1,8 +1,9 @@
 local typescript_organise_imports = require("util.lsp").typescript_organise_imports
 local lspconfig = require("lspconfig")
-local capabilities = require("blink-cmp").get_lsp_capabilities()
+local capabilities = require("blink-cmp").get_lsp_capabilities({
+  textDocument = { completion = { completionItem = { snippetSupport = false } } }
+})
 local on_attach = require("util.lsp").on_attach
--- local vue_plugin = vim.fn.expand("$MASON/packages") .. "/vue-language-server" .. "/node_modules/@vue/language-server"
 
 return {
 	"neovim/nvim-lspconfig",
@@ -61,14 +62,14 @@ return {
         settings = {
           typescript = {
             inlayHints = {
-              includeInlayEnumMemberValueHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayFunctionParameterTypeHints = true,
+              includeInlayEnumMemberValueHints = false,
+              includeInlayFunctionLikeReturnTypeHints = false,
+              includeInlayFunctionParameterTypeHints = false,
               includeInlayParameterNameHints = "literals",
               includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayVariableTypeHints = true,
-              includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+              includeInlayPropertyDeclarationTypeHints = false,
+              includeInlayVariableTypeHints = false,
+              includeInlayVariableTypeHintsWhenTypeMatchesName = false,
             },
           },
           completions = {
@@ -76,24 +77,6 @@ return {
           },
         },
 			},
-
-			-- vue
-			volar = {},
-
-			-- vue + ts - currently throws errors, so disabled
-			-- vtsls = {
-			--      settings = {
-			--        autoUseWorkspaceTsdk = false,
-			--        vtsls = {
-			--          tsserver = {
-			--            globalPlugins = {
-			--              vue_plugin,
-			--            },
-			--          },
-			--        },
-			--      },
-			--      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-			--    },
 
 			-- bash
 			bashls = {
@@ -175,6 +158,11 @@ return {
 
 			-- odin
 			ols = {},
+
+      -- shaders: glsl / slang
+      glsl_analyzer = {
+        filetypes = { "glsl", "slang" }
+      }
 		},
 	},
 }
